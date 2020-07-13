@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="current">
+            <img src="images/img1.jpg" alt="">
+        </div>
+        <div class="images">
+            <img src="images/img1.jpg" alt="" class="imges">
+            <img src="images/img2.jpg" alt="" class="imges">
+            <img src="images/img3.jpg" alt="" class="imges">
+            <img src="images/img4.jpg" alt="" class="imges">
+            <img src="images/img5.jpg" alt="" class="imges">
+            <img src="images/img6.jpg" alt="" class="imges">
+            <img src="images/img7.jpg" alt="" class="imges">
+            <img src="images/img8.jpg" alt="" class="imges">
+        </div>
+    </div>
+
+
+    <script>
+        let current=document.querySelector(".current>img");
+        let images=document.querySelectorAll(".imges");
+
+        images.forEach((image)=>{
+            image.addEventListener("click",e=> {
+
+                images.forEach(image=> image.style.opacity=1);
+                current.src=e.target.src;
+                e.target.style.opacity=0.6;
+
+                current.classList.add("fade-current");
+
+                setTimeout( ()=>{
+                    current.classList.remove("fade-current");
+                },500);
+                
+            });
+        })
+
+    </script>
+</body>
+</html>
